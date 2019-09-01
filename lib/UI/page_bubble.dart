@@ -16,11 +16,17 @@ class PageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50.0,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width <= 320.0 ? 45 : 50.0,
       height: 65.0,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(MediaQuery
+              .of(context)
+              .size
+              .width <= 320.0 ? 2.5 : 5.0),
           child: Container(
             width: lerpDouble(
                 20.0,
