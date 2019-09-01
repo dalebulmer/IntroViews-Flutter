@@ -23,7 +23,7 @@ class PageBubble extends StatelessWidget {
       height: 65.0,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(MediaQuery
+          padding: EdgeInsets.all(MediaQuery
               .of(context)
               .size
               .width <= 320.0 ? 2.5 : 5.0),
