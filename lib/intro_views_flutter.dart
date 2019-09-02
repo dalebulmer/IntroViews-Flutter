@@ -45,7 +45,7 @@ class IntroViewsFlutter extends StatefulWidget {
   final VoidCallback onTapSkipButton;
 
   /// run a function after next Button pressed
-  final VoidCallback onTapNextButton;
+  final Function onTapNextButton;
 
   /// run a function after back Button pressed
   final VoidCallback onTapBackButton;
@@ -198,7 +198,9 @@ class _IntroViewsFlutterState extends State<IntroViewsFlutter>
         //done animating
         else if (event.updateType == UpdateType.doneAnimating) {
           activePageIndex = nextPageIndex;
-
+          //Custom wordoftravel code
+          debugPrint(activePageIndex.toString());
+            widget.onTapNextButton(activePageIndex);
           slideDirection = SlideDirection.none;
           slidePercent = 0.0;
 
@@ -293,7 +295,7 @@ class _IntroViewsFlutterState extends State<IntroViewsFlutter>
                 // after next pressed invoke function
                 // this can be used for analytics/page transition
                 if (widget.onTapNextButton != null) {
-                  widget.onTapNextButton();
+                  widget.onTapNextButton(activePageIndex);
                 }
               });
             },
